@@ -34,8 +34,10 @@ var manifest = {
     }],
     plugins: {
         'hapi-auth-basic': {},
+        'bell': {},
         'lout': [{ select: 'api' }],
         './plugins/auth': {},
+        './plugins/auth-bell': {},
         './plugins/models': {},
         './plugins/mailer': {},
         './plugins/api/accounts': [{ select: 'api' }],
@@ -45,6 +47,7 @@ var manifest = {
         './plugins/api/contact': [{ select: 'api' }],
         './plugins/api/index': [{ select: 'api' }],
         './plugins/api/login': [{ select: 'api' }],
+        './plugins/api/login-bell': [{ select: 'api' }],
         './plugins/api/logout': [{ select: 'api' }],
         './plugins/api/sessions': [{ select: 'api' }],
         './plugins/api/signup': [{ select: 'api' }],

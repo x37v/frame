@@ -94,6 +94,11 @@ User.schema = Joi.object().keys({
         token: Joi.string().required(),
         expires: Joi.date().required()
     }),
+    oauth: Joi.object().keys({
+        twitter: Joi.string(),
+        facebook: Joi.string(),
+        github: Joi.string()
+    }),
     timeCreated: Joi.date()
 });
 

@@ -23,6 +23,21 @@ var config = {
         forIp: 50,
         forIpAndUser: 7
     },
+    cookiePassword: 'T1m3kItt3n5!',
+    oauth: {
+        facebook: {
+            key: undefined,
+            secret: undefined
+        },
+        github: {
+            key: undefined,
+            secret: undefined
+        },
+        twitter: {
+            key: undefined,
+            secret: undefined
+        }
+    },
     mongodb: {
         $filter: 'env',
         production: {
