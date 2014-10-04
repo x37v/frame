@@ -53,6 +53,7 @@ var manifest = {
         './plugins/api/signup': [{ select: 'api' }],
         './plugins/api/statuses': [{ select: 'api' }],
         './plugins/api/users': [{ select: 'api' }],
+        './plugins/api/users-bell': [{ select: 'api' }],
         './plugins/web/index': [{ select: 'web' }]
     }
 };
