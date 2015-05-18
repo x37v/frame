@@ -17,11 +17,13 @@ exports.register = function (server, options, next) {
         },
         handler: function (request, reply) {
 
+            if (!request.auth.credentials || !request.auth.credentials.user) {
+                return reply({ message: 'Session not found.' }).takeover().code(404);
+            }
+
             var Session = request.server.plugins['hapi-mongo-models'].Session;
-            var credentials = request.auth.credentials || { user: {} };
-            var user = credentials.user || {_id: 'notfound'};
             var query = {
-                userId: user._id.toString()
+                userId: request.auth.credentials.user._id.toString()
             };
 
             Session.deleteMany(query, function (err, count) {
