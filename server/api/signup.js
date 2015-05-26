@@ -148,8 +148,7 @@ exports.register = function (server, options, next) {
                     done();
                 }],
                 session: ['linkUser', 'linkAccount', function (done, results) {
-
-                    Session.create(request.payload.username, done);
+                    Session.create(results.user._id.toString(), done);
                 }]
             }, function (err, results) {
 
