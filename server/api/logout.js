@@ -17,7 +17,7 @@ exports.register = function (server, options, next) {
         },
         handler: function (request, reply) {
 
-            if (!request.auth.credentials || !request.auth.credentials.user) {
+            if (!(request.auth.credentials && request.auth.credentials.user && request.auth.credentials.session)) {
                 return reply({ message: 'Session not found.' }).takeover().code(404);
             }
 
@@ -33,8 +33,9 @@ exports.register = function (server, options, next) {
                     return reply({ message: 'Session not found.' }).code(404);
                 }
 
-                if (request.auth.session)
+                if (request.auth.session) {
                   request.auth.session.clear();
+                }
                 reply({ message: 'Success.' });
             });
         }
